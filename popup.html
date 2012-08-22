@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+		<title>MaiKu Web Clipper Popup Page</title>
+        <link rel="stylesheet" href="css/popup.css" />
+	</head>
+    <body>
+        <div class="popupwrap">
+            <div class="content" id="content">
+                <div class="top">
+                    <a href="http://note.sdo.com" class="logo" title="前往麦库记事" target="_blank">前往麦库记事</a>
+                    <div class="topcorner">
+                        <a class="optionbtn" id="optionbtn" title="帮助"></a>
+                        <a class="closebtn" id="closebtn" title="关闭"></a>
+                    </div>
+                    <ul class="mkbm-utils" id="mkbm-utils">
+                        <li class="mkbm-auto-extract mkbm-util-item">
+                            <a class="mkbm-util-icon mkbm-enable" title="启动时自动提取正文：开"></a>
+                        </li>
+                        <li class="mkbm-panel-position mkbm-util-item">
+                            <a class="mkbm-util-icon mkbm-up" title="置底"></a>
+                        </li>
+						<li class="mkbm-refresh-info mkbm-util-item">
+                            <a class="mkbm-util-icon mkbm-enable" title="刷新信息"></a>
+                        </li>
+                    </ul>
+                    <ul class="mkbm-downloads">
+                        <li class="mkbm-util-item"><a href="http://download.note.sdo.com/res/fe9751d0-361e-43ee-b2a3-9c1609987cfd" class="mkbm-util-icon pc" title="下载PC客户端"></a></li>
+                        <li class="mkbm-util-item"><a target="_blank" href="http://itunes.apple.com/cn/app/id429863467" class="mkbm-util-icon iphone" title="下载iPhone客户端"></a></li>
+                        <li class="mkbm-util-item"><a href="http://download.note.sdo.com/res/4ccd17f8-5bbc-496c-97cc-bdfb82790756" class="mkbm-util-icon android" title="下载Android客户端"></a></li>
+                        <li class="normaltext"><a target="_blank" href="http://note.sdo.com/download" title="更多下载方式">更多<em>>></em></a></li>
+                    </ul>
+                </div>
+                <div class="title">
+                    <input placeholder="笔记标题" id="titleinp" title="笔记标题"></input>
+                </div>
+                <div class="not-selectable mkbm-extra" id="mkbm-extra">
+                    <div class="mkbm-category">
+                        <div class="mkbm-category-show" title="登录后才能查看所有的分类"><span>默认分类</span></div>
+                        <ul class="mkbm-category-select"></ul>
+                    </div>
+                    <div class="mkbm-tags">
+                        <div class="mkbm-taghandler">
+                            <ul class="mkbm-tagHandler-init mkbm-taghandlerContainer">
+                                <li class="tagInput"><input class="tagInputField" type="text" placeholder="回车确认添加" title="回车确认添加"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="notecontentwrap" id="notecontentwrap">
+                    <div class="dragger" id="dragger"></div>
+                    <div id="notecontent" contenteditable="true" class="notecontent"></div>
+                </div>
+                <div class="bottom">
+                    <div class="mkbm-account-info">
+                        <a class="username logined" id="username" title="" href="#" target="_blank">未登录</a><span class="logoutwrap">（<a class="logout" id="logout" title="切换帐号" href="#">切换帐号</a>）</span>
+                    </div>
+                    <a class="btn resetbtn" id="resetbtn" title="重置内容">重 置</a>
+                    <a class="btn savebtn" id="savebtn" title="保存笔记">保 存</a>
+                </div>
+            </div>
+        </div>
+		<script src="script/lib/jquery.min.js"></script>
+		<script src="script/lib/jquery.taghandler.js"></script>
+		<script src="script/popup.js"></script>
+    </body>
+</html>

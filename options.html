@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>麦库剪辑器选项设置</title>
+        <link rel="stylesheet" href="css/options.css" type="text/css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <a href="http://www.mknote.com" class="logo"></a>
+            <div class="settings">
+                <h2 class="title">选项</h2>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <div class="optionname">保存图片文件</div>
+                            <div class="optionset">
+                                <p class="tiptext"><label><input type="checkbox" name="retrieveremoteimage" checked="checked" /><span>保存笔记时，如果内容中有图片，会将图片文件保存至麦库。</span></label></p>
+                                <p class="tiptext2">注：您也可以通过鼠标右键菜单“麦库记事•剪集”内进行选择。开启该选项，保存笔记可能需要较长时间。</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="optionname">生成图片附件</div>
+                            <div class="optionset">
+                                <p class="tiptext"><label><input type="checkbox" name="imageattachment"  /><span> 保存笔记时，如果内容中有图片，会在保存后的笔记中生成附件对图片进行保存。</span></label></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="optionname">自动提取正文</div>
+                            <div class="optionset">
+                                <p class="tiptext"><label><input type="checkbox" name="autoextract" checked="checked" /><span>启动剪辑功能时，自动提取正文。</span></label></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <h2 class="title" style="margin-top:40px;">快捷键</h2>
+                <div class="content">
+                    <ul>
+                        <li>弹出框：ctrl + shift + x</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">©2010 - 2012 麦库</div>
+        </div>
+        <script src="script/lib/jquery.min.js"></script>
+        <script src="script/settings.js"></script>
+        <script src="script/options.js"></script>
+    </body>
+</html>

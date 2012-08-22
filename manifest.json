@@ -1,0 +1,39 @@
+{
+   "background": {
+      "scripts": [ "script/lib/jquery.min.js", "script/settings.js", "script/particularsites.js", "script/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/icons/19x19.png",
+      "default_title": "__MSG_BrowserActionTitle__"
+   },
+   "content_scripts": [ {
+      "js": [ "script/lib/jquery.min.js", "script/maikuclipper.js", "script/lib/extract-content.js" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+   }, {
+      "js": [ "script/sites/douban.com.review.js" ],
+      "matches": [ "http://*.douban.com/review/*" ]
+   }, {
+      "js": [ "script/sites/weibo.com.js" ],
+      "matches": [ "http://weibo.com/*", "http://*.weibo.com/*" ]
+   } ],
+   "default_locale": "zh_CN",
+   "description": "__MSG_ExtensionDescription__",
+   "icons": {
+      "128": "images/icons/128x128.png",
+      "16": "images/icons/16x16.png",
+      "19": "images/icons/19x19.png",
+      "32": "images/icons/32x32.png",
+      "48": "images/icons/48x48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgoJt85UVt+CMES86U9I1IO30Tjca6pMWud/1veAK4lWiXqTBY2skIfq5yCQUzR7Lqvq9HOjF8rwecwcIaYrs3bzjOwVgzYJFSe3JuekOTQXWtar/bh+WzSQ7yFyXF2Prh4ddh6v+ecQYlaQ9fjT8B86nsPtu/VyRH8OkmW5ssswIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_ExtensionName__",
+   "omnibox": {
+      "keyword": "maiku"
+   },
+   "options_page": "options.html",
+   "permissions": [ "tabs", "contextMenus", "cookies", "management", "pageCapture", "notifications", "browsingData", "http://*/*", "https://*/*" ],
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "3.0.1",
+   "web_accessible_resources": [ "popup.html" ]
+}
