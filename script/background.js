@@ -14,7 +14,7 @@
 			self.initTabEvents();
 			self.initExtensionRequest();
 			//self.removeFileSystems();
-            self.initOmnibox();
+            //self.initOmnibox();
         },
         browserAction:function(){
             var self = this;

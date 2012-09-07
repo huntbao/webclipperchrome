@@ -27,11 +27,8 @@
    },
    "manifest_version": 2,
    "name": "__MSG_ExtensionName__",
-   "omnibox": {
-      "keyword": "maiku"
-   },
    "options_page": "options.html",
    "permissions": [ "tabs", "contextMenus", "cookies", "management", "pageCapture", "notifications", "http://*/*", "https://*/*" ],
-   "version": "3.0.2",
+   "version": "3.0.21",
    "web_accessible_resources": [ "popup.html" ]
 }
