@@ -96,7 +96,21 @@
                     }
                 }else if(t.is('.mkbm-refresh-info')){
 					self.getUser(true);
-				}
+				}else if(t.is('.mkbm-mouse-select')){
+                    if(t.data('isdisabled') == 'true'){
+                        parent.postMessage({name: 'showinspectorfrommaikupopup'}, '*');
+                        t.data('isdisabled', 'false')
+                        .find('.mkbm-util-icon')
+                        .removeClass('mkbm-disabled')
+                        .attr('title', communicationProxy.clipper.i18n.getMessage('DisableMouseSelect'));
+                    }else{
+                        parent.postMessage({name: 'hideinspectorfrommaikupopup'}, '*');
+                        t.data('isdisabled', 'true')
+                        .find('.mkbm-util-icon')
+                        .addClass('mkbm-disabled')
+                        .attr('title', communicationProxy.clipper.i18n.getMessage('EnableMouseSelect'));
+                    }
+                }
             });
             self.noteContent = noteContent;
         },

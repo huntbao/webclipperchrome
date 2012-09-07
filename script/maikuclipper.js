@@ -181,6 +181,12 @@
                     case 'savenotefrommaikupopup':
                         self.saveNote(e.data.notedata);
                         break;
+                    case 'showinspectorfrommaikupopup':
+                        self.showInspector();
+                        break;
+                    case 'hideinspectorfrommaikupopup':
+                        self.hideInspector();
+                        break;
                     case 'hidemaskfrommaikupopup':
                         self.mask && self.mask.hide();
                         break;
@@ -277,6 +283,22 @@
                 }
             }
 		},
+        hideInspector: function(){
+            var self = this;
+            if(!self.markContainer) return;
+            self.markContainer.hide();
+            self.body.unbind('mousemove.maikuclippermark').unbind('click.maikuclippermark');
+        },
+        showInspector: function(){
+            var self = this;
+            if(!self.markContainer) return;
+            self.markContainer.show();
+            self.body.bind('mousemove.maikuclippermark', function(e){
+                self.mouseMoveMarkHandler(e);
+            }).bind('click.maikuclippermark', function(e){
+                self.clickMarkHandler(e);
+            })
+        },
         removeInspector: function(){
             var self = this;
             if(!self.markContainer) return;
