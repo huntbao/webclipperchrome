@@ -20,16 +20,13 @@
             var mouseDowned,
             startPageY,
             noteContent = $('#notecontent'),
-            noteContentContainer = $('#notecontentwrap'),
             body = $('body'),
             initTaHeight = parseInt(noteContent.css('height')),
-            initTaContainerHeight = parseInt(noteContentContainer.css('height')),
             changeStep;
             $(document).mousemove(function(e){
 				if(mouseDowned){
 					changeStep = e.pageY - startPageY;
 					noteContent.css('height', initTaHeight + changeStep);
-					noteContentContainer.css('height', initTaContainerHeight + changeStep);
 					parent.postMessage({name: 'changeheightfrommaikupopup', param: changeStep}, '*');
 				}
             }).bind('mouseup', function(e){
@@ -37,12 +34,11 @@
                 body.removeClass('not-selectable');
                 noteContent.removeClass('not-selectable');
                 initTaHeight = parseInt(noteContent.css('height'));
-                initTaContainerHeight = parseInt(noteContentContainer.css('height'));
                 parent.postMessage({name: 'stopchangeheightfrommaikupopup'}, '*');
             }).mouseenter(function(){
                 parent.postMessage({name: 'hidemaskfrommaikupopup'}, '*');
             });
-            $('#dragger').mousedown(function(e){
+            $('#resizer').mousedown(function(e){
                 mouseDowned = true;
                 body.addClass('not-selectable');
                 noteContent.addClass('not-selectable');

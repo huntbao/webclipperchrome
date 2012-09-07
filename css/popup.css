@@ -30,7 +30,6 @@ input::-webkit-input-placeholder {
 .topcorner .optionbtn,
 .topcorner .closebtn,
 .mkbm-util-icon,
-.notecontentwrap .dragger,
 .mkbm-account-info .username{
     background:url(images/sprite.png) no-repeat;
 }
@@ -148,6 +147,12 @@ input::-webkit-input-placeholder {
 }
 .mkbm-refresh-info .mkbm-util-icon{
     background-position: -1px -230px;
+}
+.mkbm-mouse-select .mkbm-enable{
+    background-position: -62px -232px;
+}
+.mkbm-mouse-select .mkbm-disabled{
+    background-position: -36px -232px;
 }
 .mkbm-util-item .pc{
     background-position: 3px -360px;
@@ -297,24 +302,16 @@ input::-webkit-input-placeholder {
     position:relative;
     width:432px;
     border: 1px solid #cbcbcb;
-    height:270px;
     border-radius: 4px;
     background-color:#fff;
-    min-height:124px;
-    max-height:464px;
 }
-.notecontentwrap .dragger{
-    width:8px;
-    height:8px;
-    position:absolute;
-    bottom:1px;
-    right:1px;
-    background-position: -4px -270px;
+.resizer{
+    height: 8px;
+    background-color: #f2f2f2;
     cursor:n-resize;
 }
 .notecontentwrap .notecontent{
     resize:none;
-    width:416px;
     border:0 none;
     outline:none;
     height:246px;

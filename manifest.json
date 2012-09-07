@@ -25,15 +25,13 @@
       "32": "images/icons/32x32.png",
       "48": "images/icons/48x48.png"
    },
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgoJt85UVt+CMES86U9I1IO30Tjca6pMWud/1veAK4lWiXqTBY2skIfq5yCQUzR7Lqvq9HOjF8rwecwcIaYrs3bzjOwVgzYJFSe3JuekOTQXWtar/bh+WzSQ7yFyXF2Prh4ddh6v+ecQYlaQ9fjT8B86nsPtu/VyRH8OkmW5ssswIDAQAB",
    "manifest_version": 2,
    "name": "__MSG_ExtensionName__",
    "omnibox": {
       "keyword": "maiku"
    },
    "options_page": "options.html",
-   "permissions": [ "tabs", "contextMenus", "cookies", "management", "pageCapture", "notifications", "browsingData", "http://*/*", "https://*/*" ],
-   "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "3.0.1",
+   "permissions": [ "tabs", "contextMenus", "cookies", "management", "pageCapture", "notifications", "http://*/*", "https://*/*" ],
+   "version": "3.0.2",
    "web_accessible_resources": [ "popup.html" ]
 }

@@ -13,7 +13,7 @@
             self.initExtensionConnect();
 			self.initTabEvents();
 			self.initExtensionRequest();
-			self.removeFileSystems();
+			//self.removeFileSystems();
             self.initOmnibox();
         },
         browserAction:function(){

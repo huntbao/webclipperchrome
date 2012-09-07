@@ -585,7 +585,10 @@
             });
         },
         saveNote: function(notedata){
-            var port = chrome.extension.connect({name:'savenotefrompopup'});
+            var self = this,
+            port = chrome.extension.connect({name:'savenotefrompopup'});
+            //close popup
+            self.closePopup();
             notedata.sourceurl = location.href;
 			port.postMessage(notedata);
         }
