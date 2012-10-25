@@ -1,13 +1,13 @@
 {
    "background": {
-      "scripts": [ "script/lib/jquery.min.js", "script/settings.js", "script/particularsites.js", "script/background.js" ]
+      "scripts": [ "script/lib/jquery-1.7.2.min.js", "script/settings.js", "script/particularsites.js", "script/background.js" ]
    },
    "browser_action": {
       "default_icon": "images/icons/19x19.png",
       "default_title": "__MSG_BrowserActionTitle__"
    },
    "content_scripts": [ {
-      "js": [ "script/lib/jquery.min.js", "script/maikuclipper.js", "script/lib/extract-content.js" ],
+      "js": [ "script/lib/jquery-1.7.2.min.js", "script/maikuclipper.js", "script/lib/extract-content.js" ],
       "matches": [ "http://*/*", "https://*/*" ]
    }, {
       "js": [ "script/sites/douban.com.review.js" ],
@@ -29,6 +29,6 @@
    "name": "__MSG_ExtensionName__",
    "options_page": "options.html",
    "permissions": [ "tabs", "contextMenus", "cookies", "management", "pageCapture", "notifications", "http://*/*", "https://*/*" ],
-   "version": "3.0.21",
+   "version": "3.1.0",
    "web_accessible_resources": [ "popup.html" ]
 }

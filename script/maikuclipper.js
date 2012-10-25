@@ -92,6 +92,76 @@
 				text: link.text || link.href
 			}
 		},
+        getSelectedContent: function(){
+            var self = this,
+            commonAncestorContainer = self.getSelectionContainer(),
+            content = '',
+            title = '';
+            if(commonAncestorContainer === null || $(commonAncestorContainer).text() === ''){
+                content = false;
+            }else if(commonAncestorContainer.nodeType === 3){
+                content = $(commonAncestorContainer).text();
+                title = content;
+            }else if(commonAncestorContainer.nodeType === 1){
+                var selectedHTML = self.getSelectedHTML();
+                var tempNode = $('<div>', {html: selectedHTML}).insertAfter($(commonAncestorContainer));
+                self.getHTMLByNode(tempNode);
+                var html = tempNode.html();
+                title = tempNode.text();
+                tempNode.remove();
+                content = html;
+            }
+            if(content){
+                var port = chrome.extension.connect({name:'getselectedcontent'});
+                port.postMessage({
+                    title: title,
+                    sourceurl: location.href,
+                    content: content
+                });
+            }
+        },
+        getSelectionContainer: function(){
+            var container = null;
+            if(window.getSelection){
+                var selectionRange = window.getSelection();
+                if(selectionRange.rangeCount > 0){
+                    var range = selectionRange.getRangeAt(0);
+                    container = range.commonAncestorContainer;
+                }
+            }else{
+                if(document.selection){
+                    var textRange = document.selection.createRange();
+                    container = textRange.parentElement();
+                }
+            }
+            return container;
+        },
+        getSelectedHTML: function(){
+            var userSelection;
+            if(window.getSelection){
+                //W3C Ranges
+                userSelection = window.getSelection();
+                //Get the range:
+                if(userSelection.getRangeAt){
+                    var range = userSelection.getRangeAt(0);
+                }else{
+                    var range = document.createRange();
+                    range.setStart(userSelection.anchorNode, userSelection.anchorOffset);
+                    range.setEnd(userSelection.focusNode, userSelection.focusOffset);
+                }
+                //And the HTML:
+                var clonedSelection = range.cloneContents();
+                var div = document.createElement('div');
+                div.appendChild(clonedSelection);
+                return div.innerHTML;
+            }else if(document.selection){
+                //Explorer selection, return the HTML
+                userSelection = document.selection.createRange();
+                return userSelection.htmlText;
+            }else{
+                return '';
+            }
+        },
 		getPageContent: function(){
 			var self = this,
 			port = chrome.extension.connect({name:'getpagecontent'});
@@ -280,6 +350,10 @@
                         var title = document.title && document.title.split('-')[0];
                         self.addMark($(extractedContent), self.mark.clone(), title.trim());
                     },0);
+                }else{
+                    var port = chrome.extension.connect({name:'noarticlefrompage'});
+                    port.postMessage();
+                    return false;
                 }
             }
 		},

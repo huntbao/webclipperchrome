@@ -61,7 +61,7 @@
                         notedata: {
                             notecontent: noteContent.html(),
                             categoryid: self.displayName.data('cateid'),
-                            tags: self.tagHandlerEl.tagHandler('getTags').join(','),
+                            tags: self.tagHandlerEl.tagme('getTags').join(','),
                             title: self.title.val() || noteContent.text().trim()
                         }
                     }, '*');
@@ -250,38 +250,28 @@
         initTags: function(){
             var self = this,
             tags = self.mkbmExtra.find('.mkbm-tags'),
-			tagHandlerEl = tags.find('.mkbm-tagHandler-init'),
+            tagHandlerEl = tags.find('.mkbm-tagme-container'),
             tagsShowTimeout;
-            tagHandlerEl.tagHandler({
-                className: 'mkbm-taghandler',
+            tagHandlerEl.tagme({
                 onAdd: function(){
                     tags.scrollTop(9999999);
-                },
-                onFocus: function(){
-                    if(tags.attr('class').indexOf('mkbm-tags-expand') == -1){
-                        tags.addClass('mkbm-tags-expand mkbm-focus');
-                    }
-                },
-                onBlur: function(){
-                    if(tags.attr('class').indexOf('mkbm-tags-expand') != -1){
-                        tags.removeClass('mkbm-tags-expand mkbm-focus');
-                    }
+                    return true;
                 }
             });
             tags.bind('mouseenter', function(){
                 tagsShowTimeout = setTimeout(function(){
-                    tags.find('.tagInputField').focus();
+                    tags.find('.tagme-input').focus();
                     tags.scrollTop(9999999);
-                    tags.addClass('mkbm-tags-expand mkbm-focus');
+                    tags.addClass('mkbm-tags-expand');
                 }, 300);
             });
             tags.bind('mouseleave', function(){
                 clearTimeout(tagsShowTimeout);
-                tags.find('.tagInputField').blur();
+                tags.find('.tagme-input').blur();
                 tags.scrollTop(0);
-                tags.removeClass('mkbm-tags-expand mkbm-focus');
+                tags.removeClass('mkbm-tags-expand');
             });
-			self.tagHandlerEl = tagHandlerEl;
+            self.tagHandlerEl = tagHandlerEl;
         },
 		getUser: function(refresh){
 			//send request to backgroun page

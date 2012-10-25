@@ -51,7 +51,8 @@
                 contexts: ['selection'],
                 title: chrome.i18n.getMessage("clipSelectionContextMenu"),
                 onclick: function(info, tab){
-					self.saveNote(info.selectionText, info.pageUrl, info.selectionText);
+					//self.saveNote(info.selectionText, info.pageUrl, info.selectionText);
+                    chrome.tabs.executeScript(tab.id, {code: "maikuClipper.getSelectedContent();"});
                 }
             });
 		},
@@ -83,7 +84,8 @@
                     self.notifyHTML(chrome.i18n.getMessage('IsClippingPage'), false);
                     chrome.tabs.executeScript(tab.id, {code: "maikuClipper.getPageContent();"});
                 }
-            });chrome.contextMenus.create({
+            });
+            chrome.contextMenus.create({
                 contexts: ['page'],
                 title: chrome.i18n.getMessage('clipAllImageContextMenu'),
                 onclick: function(info, tab){
@@ -372,6 +374,7 @@
 						self.alllinksHandlerConnect(port);
 						break;
 					case 'getpagecontent':
+					case 'getselectedcontent':
 						self.getpagecontentConnect(port);
 						break;
 					case 'maikuclipperisnotready':
@@ -379,6 +382,9 @@
 						break;
                     case 'actionfrompopupinspecotr':
                         self.actionfrompopupinspecotrHandler(port);
+                        break;
+                    case 'noarticlefrompage':
+                        self.noarticlefrompageHandler(port);
                         break;
                     default: 
 						break;
@@ -488,6 +494,10 @@
                         var suffix = url.substr(url.length - 4);
                         return /^\.(gif|jpg|png)$/.test(suffix);
                     }
+                    if(imgs.length === 0){
+                        self.saveNote(msg.title, msg.sourceurl, msg.content);
+                        return;
+                    }
                     for(var i = 0, img, l = imgs.length, src; i < l; i++){
                         img = imgs[i];
                         src = img.src;
@@ -534,6 +544,12 @@
                 //send to popup
 				chrome.tabs.sendRequest(port.sender.tab.id, {name: 'actionfrompopupinspecotr', data: data});
 			});
+        },
+        noarticlefrompageHandler: function(port){
+            var self = this;
+            port.onMessage.addListener(function(data){
+                self.notifyHTML(chrome.i18n.getMessage('NoArticleFromPage'));
+            });
         },
         onFileError: function(err){
             for(var p in FileError){
@@ -753,6 +769,9 @@
                 dataFilter: function(data){
                     data = $.parseJSON(data.substr(9));//remove 'while(1);'
                     return data.success ? data.data : {error: data.error};
+                },
+                beforeSend: function(xhr){
+                    xhr.setRequestHeader('UserClient', 'inote_web_chromeext/3.1.0');
                 }
             });
         },

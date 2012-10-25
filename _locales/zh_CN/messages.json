@@ -13,7 +13,7 @@
    },
    "BrowserTooLower": {
       "description": "browser not support chrome.extension.sendMessage method",
-      "message": "\u62B1\u6B49\uFF0C\u9EA6\u5E93\u526A\u8F91\u5668\u6682\u65F6\u4E0D\u652F\u6301\u8BE5\u7248\u672C\u7684Chrome\u6D4F\u89C8\u5668\uFF0C\u8BF7\u5C06\u6D4F\u89C8\u5668\u5347\u7EA7\u5230\u6700\u65B0\u7A33\u5B9A\u7248\u672C\u3002\u70B9\u51FB\u53F3\u4E0A\u89D2\u6273\u624B\u5DE5\u5177\u9009\u62E9'\u5173\u4E8E Google Chrome(G)'\u8FDB\u884C\u81EA\u52A8\u5347\u7EA7"
+      "message": "\u62B1\u6B49\uFF0C\u9EA6\u5E93\u526A\u8F91\u5668\u6682\u65F6\u4E0D\u652F\u6301\u8BE5\u7248\u672C\u7684Chrome\u6D4F\u89C8\u5668\uFF0C\u8BF7\u5C06\u6D4F\u89C8\u5668\u5347\u7EA7\u5230\u6700\u65B0\u7A33\u5B9A\u7248\u672C\u3002\u70B9\u51FB\u53F3\u4E0A\u89D2\u5DE5\u5177\u6309\u94AE\u9009\u62E9'\u5173\u4E8E Google Chrome(G)'\u8FDB\u884C\u81EA\u52A8\u5347\u7EA7"
    },
    "CancelTip": {
       "description": "cancel tip",
@@ -158,5 +158,9 @@
    "pageCaptureUploading": {
       "description": "is uploading captured page attachment",
       "message": "\u6B63\u5728\u4E0A\u4F20\u9644\u4EF6..."
+   },
+   "NoArticleFromPage": {
+      "description": "no aricle from page while auto extraction",
+      "message": "\u9875\u9762\u6CA1\u6709\u6B63\u6587\u54E6\u256E\u0028\u256F\u005F\u2570\u0029\u256D\u5C1D\u8BD5\u4FDD\u5B58\u7F51\u9875\u5427"
    }
 }

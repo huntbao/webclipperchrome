@@ -2,6 +2,7 @@
     <head>
         <meta charset="utf-8"/>
 		<title>MaiKu Web Clipper Popup Page</title>
+        <link rel="stylesheet" href="css/jquery.tagme.css" />
         <link rel="stylesheet" href="css/popup.css" />
 	</head>
     <body>
@@ -43,9 +44,8 @@
                         <ul class="mkbm-category-select"></ul>
                     </div>
                     <div class="mkbm-tags">
-                        <div class="mkbm-taghandler">
-                            <ul class="mkbm-tagHandler-init mkbm-taghandlerContainer">
-                                <li class="tagInput"><input class="tagInputField" type="text" placeholder="回车确认添加" title="回车确认添加"></li>
+                        <div class="mkbm-tagme">
+                            <ul class="mkbm-tagme-container">
                             </ul>
                         </div>
                     </div>
@@ -63,8 +63,8 @@
                 </div>
             </div>
         </div>
-		<script src="script/lib/jquery.min.js"></script>
-		<script src="script/lib/jquery.taghandler.js"></script>
+		<script src="script/lib/jquery-1.7.2.min.js"></script>
+		<script src="script/lib/jquery.tagme.js"></script>
 		<script src="script/popup.js"></script>
     </body>
 </html>

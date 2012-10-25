@@ -261,42 +261,29 @@ input::-webkit-input-placeholder {
 .mkbm-tags-expand .mkbm-taghandlerContainer li{
     display: inline-block;
 }
-.mkbm-taghandler {
+.mkbm-tagme {
     height: 22px;
     width: 256px;
     position: relative;
-    left: 16px;
-    padding: 2px 0 4px 0;
+    left: 28px;
+    padding: 5px 0 4px 0;
     z-index: 1000004;
 }
-.mkbm-taghandler ul.mkbm-taghandlerContainer {
+.mkbm-tagme .mkbm-tagme-container{
     width: 256px;
     overflow: hidden;
     cursor: text;
     padding:0;
     margin:0;
 }
-.mkbm-taghandler ul.mkbm-taghandlerContainer li {
-    display: inline-block;
-    margin: 0 5px 8px 0;
-    white-space: nowrap;
-    border-radius: 3px;
-    padding:0;
-}
-.mkbm-taghandler ul.mkbm-taghandlerContainer li.tagItem {
-    background-color: #a1cc23;
-    color: #fff;
-    padding: 3px 8px;
-    cursor:default;
-}
-.mkbm-taghandler ul.mkbm-taghandlerContainer input.tagInputField {
-    border: none;
-    width: 250px;
-    background-color: #fff;
-    color: #666;
+.tagme-container{
+    padding: 0;
     margin: 0;
-    padding: 2px;
-    outline: 0;
+    list-style: none;
+    line-height: 20px !important;
+}
+.tagme-container li.tagme-item{
+    margin: 0 5px 5px 0 !important;
 }
 .notecontentwrap{
     position:relative;
